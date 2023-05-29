@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCg09-MR81XSh5zw8ts7wDRvoALVeN0Kfg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>851113092741</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.hexEcommerce</string>
+	<key>PROJECT_ID</key>
+	<string>hex-ecommerce</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hex-ecommerce.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:851113092741:ios:5e902469d502e0a27d2bec</string>
+</dict>
+</plist>
