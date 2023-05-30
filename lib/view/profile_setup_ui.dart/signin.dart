@@ -1,154 +1,231 @@
-import 'package:flutter/material.dart';
-import '../../model/firebase.dart';
-
-class ButtonPage extends StatelessWidget {
-  const ButtonPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Login Page'),
-      ),
-        body: Column(
-      children: [
-        const Center(
-          child: TextField(
-              decoration: InputDecoration(
-                  hintText: 'username', border: OutlineInputBorder())),
-        ),
-        const TextField(
-            decoration: InputDecoration(
-                hintText: 'Password', border: OutlineInputBorder())),
-        ElevatedButton(
-          onPressed: () {},
-          child: const Text('Login'),
-        ),
-        const Text("newuser?"),
-        ElevatedButton(
-            onPressed: () {
-              signup(context);
-            },
-            child: const Text('SignUP')),
-      ],
-    )
-
-        //  ElevatedButton(onPressed: (){
-
-        // }, child: Text("")),
-        );
-  }
-}
-
-
-
-
 // import 'package:flutter/material.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+// import '../../model/firebase.dart';
 
-//   // This widget is the root of your application
+// class ButtonPage extends StatelessWidget {
+//   const ButtonPage({super.key});
 
-// class MyLoginPage extends StatefulWidget {
-//   @override
-//   _MyLoginPageState createState() => _MyLoginPageState();
-// }
-
-// class _MyLoginPageState extends State<MyLoginPage> {
-//   final _auth = FirebaseAuth.instance;
-//   bool showProgress = false;
-//   late String email, password;
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
 //       appBar: AppBar(
-//         title: Text("Firebase Authentication"),
+//         title: Text('Login Page'),
 //       ),
-//       body: Center(
-//         child: ModalProgressHUD(
-//           inAsyncCall: showProgress,
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: <Widget>[
-//               Text(
-//                 "Login Page",
-//                 style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20.0),
-//               ),
-//               SizedBox(
-//                 height: 20.0,
-//               ),
-//               TextField(
-//                 keyboardType: TextInputType.emailAddress,
-//                 textAlign: TextAlign.center,
-//                 onChanged: (value) {
-//                   email = value; // get value from TextField
-//                 },
-//                 decoration: InputDecoration(
-//                     hintText: "Enter your Email",
-//                     border: OutlineInputBorder(
-//                         borderRadius: BorderRadius.all(Radius.circular(32.0)))),
-//               ),
-//               SizedBox(
-//                 height: 20.0,
-//               ),
-//               TextField(
-//                 obscureText: true,
-//                 textAlign: TextAlign.center,
-//                 onChanged: (value) {
-//                   password = value; //get value from textField
-//                 },
-//                 decoration: InputDecoration(
-//                     hintText: "Enter your Password",
-//                     border: OutlineInputBorder(
-//                         borderRadius: BorderRadius.all(Radius.circular(32.0)))),
-//               ),
-//               SizedBox(
-//                 height: 20.0,
-//               ),
-//               Material(
-//                 elevation: 5,
-//                 color: Colors.lightBlue,
-//                 borderRadius: BorderRadius.circular(32.0),
-//                 child: MaterialButton(
-//                   onPressed: () async {
-//                     setState(() {
-//                       showProgress = true;
-//                     });
-
-//                     try {
-//                       final newUser = await _auth.signInWithEmailAndPassword(
-//                           email: email, password: password);
-
-//                       print(newUser.toString());
-
-//                       if (newUser != null) {
-//                         Fluttertoast.showToast(
-//                             msg: "Login Successfull",
-//                             toastLength: Toast.LENGTH_SHORT,
-//                             gravity: ToastGravity.CENTER,
-//                             timeInSecForIos: 1,
-//                             backgroundColor: Colors.blueAccent,
-//                             textColor: Colors.white,
-//                             fontSize: 16.0);
-//                         setState(() {
-//                           showProgress = false;
-//                         });
-//                       }
-//                     } catch (e) {}
-//                   },
-//                   minWidth: 200.0,
-//                   height: 45.0,
-//                   child: Text(
-//                     "Login",
-//                     style:
-//                         TextStyle(fontWeight: FontWeight.w500, fontSize: 20.0),
-//                   ),
-//                 ),
-//               )
-//             ],
-//           ),
+//         body: Column(
+//       children: [
+//         const Center(
+//           child: TextField(
+//               decoration: InputDecoration(
+//                   hintText: 'username', border: OutlineInputBorder())),
 //         ),
-//       ),
-//     );
+//         const TextField(
+//             decoration: InputDecoration(
+//                 hintText: 'Password', border: OutlineInputBorder())),
+//         ElevatedButton(
+//           onPressed: () {},
+//           child: const Text('Login'),
+//         ),
+//         const Text("newuser?"),
+//         ElevatedButton(
+//             onPressed: () {
+//               signup(context);
+//             },
+//             child: const Text('SignUP')),
+//       ],
+//     )
+
+//         //  ElevatedButton(onPressed: (){
+
+//         // }, child: Text("")),
+//         );
 //   }
 // }
+
+import 'package:flutter/material.dart';
+import 'package:hex_ecommerce/model/firebase.dart';
+import 'package:hex_ecommerce/view/home_page_ui/home_page_ui.dart';
+import 'package:hex_ecommerce/view/profile_setup_ui.dart/signup.dart';
+
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(255, 211, 230, 246),
+            Color.fromARGB(255, 58, 122, 146)
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+      ),
+      child: Center(
+        child: Align(
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height / 1.1,
+                    width: MediaQuery.of(context).size.width / 2.5,
+                    color: Color.fromRGBO(255, 255, 255, 1),
+                    child: Container(
+                      padding: EdgeInsets.all(35),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 100),
+                              Text(
+                                "Welcome back, Hexa",
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "Welcome back! Please enter your details.",
+                                style: TextStyle(
+                                  fontSize: 11,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 20),
+                          TextField(
+                              decoration: InputDecoration(hintText: 'Email')),
+                          TextField(
+                              decoration:
+                                  InputDecoration(hintText: 'Password')),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Forgot password',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  decoration: TextDecoration
+                                      .underline, // Add an underline below the text
+                                ),
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ButtonStyle(
+                                minimumSize: MaterialStateProperty.all(Size(250,
+                                    38)), // Set the desired size of the button
+                                backgroundColor: MaterialStateProperty.all(Colors
+                                    .black), // Set the button color to black
+                              ),
+                              child: Text(
+                                "Log in",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 11,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          MaterialButton(
+                            color: Colors.white,
+                            // elevation: 100,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                // Image.asset(
+                                //   'assets/google.jpeg', // Replace with your asset image path
+                                //   height: 50,
+                                //   width: 50,
+                                // ),
+
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text("Sign In with Google")
+                              ],
+                            ),
+     onPressed: () async {
+      signup(context);
+  Navigator.of(context).push(
+        MaterialPageRoute(builder: (BuildContext context) => Homepage()),
+      );
+},
+
+
+
+                          ),
+                          SizedBox(height: 20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Don't have an account?",
+                                style: TextStyle(fontSize: 11),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => SignUp(),));
+                                },
+                                child: Text(
+                                  'Sign Up',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    // Add an underline below the text
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width / 2.5,
+                    height: MediaQuery.of(context).size.height / 1.1,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color.fromARGB(255, 26, 59, 84),
+                          Colors.blue.shade500
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                    ),
+                  ),
+                  //  SizedBox(width: 30,)
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    ));
+  }
+}

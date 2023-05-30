@@ -10,8 +10,10 @@ class Product {
   final double price;
   @HiveField(2)
   final String imageUrls;
+  @HiveField(3)
+  final String description;
 
-  Product(this.name, this.price, this.imageUrls);
+  Product(this.name, this.price, this.imageUrls, this.description);
 
   @override
   String toString() {

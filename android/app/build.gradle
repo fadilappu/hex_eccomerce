@@ -69,4 +69,7 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compile('com.paytm:pgplussdk:1.4.4') { 
+    transitive = true;
+ } 
 }
