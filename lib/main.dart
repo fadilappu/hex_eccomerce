@@ -7,11 +7,8 @@ import 'model/hive_model_class.dart';
 
 Future <void> main()async{
   WidgetsFlutterBinding.ensureInitialized();
-// initializing the firebase app
-// await Firebase.initializeApp();
  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+    options: DefaultFirebaseOptions.currentPlatform);
   await Hive.initFlutter();
   if(!Hive.isAdapterRegistered(ProductAdapter().typeId)){
     Hive.registerAdapter(ProductAdapter());

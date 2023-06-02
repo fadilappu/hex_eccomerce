@@ -1,25 +1,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hex_ecommerce">
-
-    <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission
+        android:name="android.permission.INTERNET"/>
     <application
         android:name="${applicationName}"
         android:label="hex_ecommerce"
         android:icon="@mipmap/ic_launcher">
-
         <!-- Add the following meta-data under the application tag -->
         <meta-data
             android:name="com.google.android.gms.auth.api.signin.851113092741-teda4mt4v3e326t38bqge12vd14i5o1q.apps.googleusercontent.com"
-            android:value="851113092741-teda4mt4v3e326t38bqge12vd14i5o1q.apps.googleusercontent.com" />
-
+            android:value="851113092741-teda4mt4v3e326t38bqge12vd14i5o1q.apps.googleusercontent.com"/>
         <!-- Add the following activity declaration -->
         <activity
             android:name="com.paytm.pgsdk.PaytmActivity"
             android:configChanges="keyboardHidden|orientation|keyboard"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <!-- Add the following intent filter for the MainActivity -->
         <activity
             android:name=".MainActivity"
@@ -30,15 +25,14 @@
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
             android:name="flutterEmbedding"
-            android:value="2" />
+            android:value="2"/>
     </application>
 </manifest>

@@ -72,8 +72,4 @@ final List<Product> products = [
       ),
     ];
 
-    List<Product> cartItems = [];
-
-     List<String> sizeOptions = ['S', 'M', 'L', 'XL'];
-
-
+    List<String> sizeOptions = ['S', 'M', 'L', 'XL'];

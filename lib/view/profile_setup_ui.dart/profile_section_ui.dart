@@ -90,6 +90,10 @@ class _UserProfilePageState extends State<UserProfilePage> {
               onPressed: _saveChanges,
               child: Text('Save Changes'),
             ),
+            ElevatedButton(onPressed: () {
+              
+            }, child: Text("sighn out"))
+
           ],
         ),
       ),

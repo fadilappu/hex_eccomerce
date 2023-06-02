@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hex_ecommerce/view/profile_setup_ui.dart/signin.dart';
-
 import '../../model/firebase.dart';
+
+final TextEditingController nameController=TextEditingController();
+final TextEditingController emailController=TextEditingController();
+final TextEditingController passwordController=TextEditingController();
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -10,6 +13,7 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
@@ -46,7 +50,9 @@ class SignUp extends StatelessWidget {
                         ),
                       ),
                     ),
+                   
                     Container(
+                      
                       height: MediaQuery.of(context).size.height / 1.1,
                       width: MediaQuery.of(context).size.width / 2.5,
                       color: Color.fromRGBO(255, 255, 255, 1),
@@ -55,13 +61,16 @@ class SignUp extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                             IconButton(onPressed: (){
+                                                 Navigator.of(context).pop();
+                                               }, icon: Icon(Icons.arrow_back,size: 40,)),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 SizedBox(height: 100),
                                 Text(
                                   "Create an account",
-                                  style: TextStyle(
+                                   style: TextStyle(
                                     fontSize: 25,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -76,11 +85,14 @@ class SignUp extends StatelessWidget {
                             ),
                             SizedBox(height: 20),
                             TextField(
+                              controller: nameController,
                                 decoration: InputDecoration(hintText: 'Name')),
                             
                             TextField(
+                              controller: emailController,
                                 decoration: InputDecoration(hintText: 'Email')),
                             TextField(
+                              controller: passwordController,
                                 decoration:
                                     InputDecoration(hintText: 'Password')),
                             SizedBox(
@@ -89,7 +101,9 @@ class SignUp extends StatelessWidget {
                            
                             Center(
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  storeData(context);
+                                },
                                 style: ButtonStyle(
                                   minimumSize: MaterialStateProperty.all(Size(
                                       250,
@@ -129,7 +143,7 @@ class SignUp extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                      signup(context);
+                      // signup(context);
                     },
                   ),
                      

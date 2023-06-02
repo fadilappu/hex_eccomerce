@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:hex_ecommerce/controller/hive_storing.dart';
 import 'package:hex_ecommerce/view/cart_ui/cart_ui.dart';
-import '../../controller/lists.dart';
-import '../../model/hive_model_class.dart';
 
-class QuotationPage extends StatelessWidget {
-  List<Product> cartItems;  
-  final int rowCount = 10;
+class QuotationPage extends StatefulWidget {
+  final List<dynamic>? cartItems;  
 
-  QuotationPage({super.key, required this.cartItems}); // Number of rows
+     const QuotationPage({super.key, required this.cartItems} ); 
+  @override
+  State<QuotationPage> createState() => _QuotationPageState();
+}
+
+class _QuotationPageState extends State<QuotationPage> {
+ int rowCount =  cartItems!.length;//Number of Rows
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text('Flutter Table Widget')),
+        appBar: AppBar(title: const Text('Order Quotation')),
         body: Center(
           child: SingleChildScrollView(
             child: Column(children: [
@@ -34,7 +36,7 @@ class QuotationPage extends StatelessWidget {
                 children: [
                   TableRow(
                     children: [
-                      Container(
+                      SizedBox(
                         height: 200,
                         child: const TableCell(
                           child: Center(
@@ -293,37 +295,33 @@ class QuotationPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  ...cartItems.asMap().entries.map((entry) {
-                    final index = entry.key;
-                    final product = entry.value;
-                    return TableRow(
-                      children: [
-                        TableCell(
-                          child: Center(
-                            child: Text('Cell ${index + 1}'),
+                    ...List.generate(rowCount, (index) {
+                      //  final product = 'cart-box';
+                      return TableRow(
+                        children: [
+                          TableCell(
+                            child: Center(
+                            child: Text('Cell ${index+1}'),
                           ),
                         ),
                         TableCell(
                           child: Center(
-                            child: Text(product
-                                .name), // Replace with the relevant product data
+                            child: Text(widget.cartItems![index].name), // Replace with the relevant product data
                           ),
                         ),
                         TableCell(
                           child: Center(
-                            child: Text('product.quantity'
-                                .toString()), // Replace with the relevant product data
+                            child: Text('Qty${index+1}'), // Replace with the relevant product data
                           ),
                         ),
                         TableCell(
                           child: Center(
-                            child: Text('product.rate'
-                                .toString()), // Replace with the relevant product data
+                            child: Text('Rate${index+1}'), // Replace with the relevant product data
                           ),
                         ),
                         TableCell(
                           child: Center(
-                            child: Text('product.unit'), // Replace with the relevant product data
+                            child: Text('Unit${index+1}'), // Replace with the relevant product data
                           ),
                         ),
                         TableCell(
